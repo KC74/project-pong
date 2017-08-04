@@ -12,17 +12,35 @@ export default class Paddle {
         this.score = 0;
         this.up = up;
         this.down = down;
+        this.score = 0;
 
         document.addEventListener('keydown', event => {
-            switch(event.key) {
+            switch (event.key) {
                 case up:
+                    if (this.pause) {
+                        return;
+                    }
                     this.moveUp();
                     break;
                 case down:
+                    if (this.pause) {
+                        return;
+                    }
                     this.moveDown();
                     break;
+                case KEYS.spaceBar:
+                    this.pause = !this.pause;
+                    break;
             }
-        })   
+        })
+    }
+    // 
+    coordinates(x, y, width, height) {
+        let leftX = x;
+        let rightX = x + width;
+        let topY = y;
+        let bottomY = y + height;
+        return [leftX, rightX, topY, bottomY];
     }
 
     // function to move paddle up
@@ -37,6 +55,7 @@ export default class Paddle {
     }
 
     render(svg) {
+
         // create line for paddle
         let paddle = document.createElementNS(SVG_NS, 'rect');
         paddle.setAttributeNS(null, 'width', this.width);
