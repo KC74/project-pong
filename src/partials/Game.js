@@ -11,6 +11,7 @@ export default class Game {
 		this.width = width;
 		this.height = height;
 		this.gameElement = document.getElementById(gameElement);
+		
 		// Other code goes here...
 		this.board = new Board(this.width, this.height);
 
