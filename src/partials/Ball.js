@@ -7,6 +7,7 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
+    this.ping = new Audio('public/sounds/pong-01.wav');
     this.reset();
   }
 
@@ -70,8 +71,8 @@ export default class Ball {
       ) {
         // flip the vx
         this.vx = -this.vx;
+        this.ping.play();
       }
-
     } else { // check left side
 
       // detect player 1 paddle collision
@@ -88,6 +89,7 @@ export default class Ball {
       ) {
         // flip the vx
         this.vx = -this.vx;
+        this.ping.play();
       }
     }
   }
