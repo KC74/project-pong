@@ -3,6 +3,7 @@ import { SVG_NS, KEYS } from '../settings.js';
 import Board from './Board.js';
 import Paddle from './Paddle.js';
 import Ball from './Ball.js';
+import Score from './Score.js';
 
 export default class Game {
 
@@ -50,6 +51,20 @@ export default class Game {
 			this.height
 		);
 
+		// player 1 score
+		this.paddle1Score = new Score(
+			this.paddle1,
+			this.width / 2 - 70 + 10,
+			30
+		)
+
+		// player 2 score
+		this.paddle2Score = new Score(
+			this.paddle2,
+			this.width / 2 + 70 - 30,
+			30
+		)
+
 		// PAUSE
 		document.addEventListener('keydown', event => {
 			switch (event.key) {
@@ -62,7 +77,7 @@ export default class Game {
 
 	render() {
 		if (this.pause) {
-			return ;
+			return;
 		}
 		// More code goes here...
 		this.gameElement.innerHTML = '';
@@ -73,12 +88,14 @@ export default class Game {
 		svg.setAttributeNS(null, 'version', '1.1');
 		svg.setAttributeNS(null, 'viewBox', `0 0 ${this.width} ${this.height}`);
 
-			
+
 		this.gameElement.appendChild(svg);
 		this.board.render(svg);
 		this.paddle1.render(svg);
 		this.paddle2.render(svg);
 		this.ball.render(svg, this.paddle1, this.paddle2);
+		this.paddle1Score.render(svg);
+		this.paddle2Score.render(svg);
 	}
 
 }
