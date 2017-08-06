@@ -21,7 +21,6 @@ export default class Game {
 		// Other code goes here...
 		this.board = new Board(this.width, this.height);
 
-
 		// paddle one (left)
 		this.paddle1 = new Paddle(
 			this.height,
