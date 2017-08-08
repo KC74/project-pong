@@ -4,16 +4,21 @@ import Board from './Board.js';
 import Paddle from './Paddle.js';
 import Ball from './Ball.js';
 import Score from './Score.js';
+import $ from 'jquery';
 
 export default class Game {
 
+	// constructor(gameElement, width, height) {
 	constructor(gameElement, width, height) {
-		// CONSTANTS
+		// PADDLE VARIABLES
 		const PADDLE_WIDTH = 8;
 		const PADDLE_HEIGHT = 56;
+
+		// BALL VARIABLES
 		const BALL_RADIUS = 8;
 		const BOARD_GAP = 10;
 
+		// GAME VARIABLES
 		this.width = width;
 		this.height = height;
 		this.gameElement = document.getElementById(gameElement);
@@ -55,14 +60,14 @@ export default class Game {
 			this.paddle1,
 			this.width / 2 - 70 + 10,
 			30
-		)
+		);
 
 		// player 2 score
 		this.paddle2Score = new Score(
 			this.paddle2,
 			this.width / 2 + 70 - 30,
 			30
-		)
+		);
 
 		// PAUSE
 		document.addEventListener('keydown', event => {
@@ -72,9 +77,79 @@ export default class Game {
 					break;
 			}
 		});
+		/* ------- SIZE SETTINGS ------- */
+
+		// LISTEN SMALL CHANGE
+		$('#ball-size-small').on('click', () => {
+			// CHANGE SETTINGS
+			this.setBallSize(3);
+		});
+
+		// LISTEN MEDIUM CHANGE
+		$('#ball-size-medium').on('click', () => {
+			// CHANGE SETTINGS
+			this.setBallSize(6);
+		});
+
+		// LISTEN LARGE CHANGE
+		$('#ball-size-large').on('click', () => {
+			// CHANGE SETTINGS
+			this.setBallSize(10);
+		});
+
+		// LISTEN RESET CHANGE
+		$('#ball-size-reset').on('click', () => {
+			// CHANGE SETTINGS
+			this.setBallSize(BALL_RADIUS);
+		});
+
+		/* ------- SPEED SETTINGS ------- */
+		// UNFINISHED
+		// // LISTEN SLOW CHANGE
+		// $('#ball-speed-slow').on('click', () => {
+		// 	// CHANGE SETTINGS
+		// 	this.setBallSpeed(5);
+		// });
+
+		// // LISTEN MEDIUM CHANGE
+		// $('#ball-speed-medium').on('click', () => {
+		// 	// CHANGE SETTINGS
+		// 	this.setBallSpeed(7);
+		// });
+
+		// // LISTEN FAST CHANGE
+		// $('#ball-speed-fast').on('click', () => {
+		// 	// CHANGE SETTINGS
+		// 	this.setBallSpeed(100);
+		// });
+
+		// // LISTEN RESET CHANGE
+		// $('#ball-speed-reset').on('click', () => {
+		// 	// CHANGE SETTINGS
+		// 	this.setBallSpeed(10);
+		// });
+
 	}
 
+	/* ------- FUNCTIONS ------- */
+
+	/* ---- SETTINGS ----- */
+
+	// BALL SIZE
+	setBallSize(ballSize) {
+		this.ball.setRadius(ballSize);
+	}
+
+	// BALL SPEED
+	// setBallSpeed(speed) {
+
+	// }
+
+	// RENDER
 	render() {
+		const BALL_SIZE_SUBMIT = document.getElementById('ball-size-submit');
+		const BALL_SIZE_INPUT = document.getElementById('ball-size-input');
+
 		if (this.pause) {
 			return;
 		}

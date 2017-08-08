@@ -12,6 +12,15 @@ export default class Ball {
   }
 
   /* ------- METHODS ------- */
+  // SET BALL SPEED
+  setSpeed(speed) {
+    this.vx = this.direction * (6 - Math.abs(this.vy)) + speed;
+  }
+
+  // SET RADIUS FUNCTION
+  setRadius(radius) {
+    this.radius = radius;
+  }
 
   // RESET FUNCTION
   reset() {
@@ -42,9 +51,9 @@ export default class Ball {
         this.vx = -this.vx;
       } else {
         // else the left wall touched? increment player 2 score
-          this.goal(player2)
-          this.vx = this.vx;
-        }
+        this.goal(player2)
+        this.vx = this.vx;
+      }
     } else if (hitTop || hitBottom) {
       // flip vy
       this.vy = -this.vy;

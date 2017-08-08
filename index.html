@@ -9,8 +9,43 @@
 <body>
 	<div class="game-wrapper">
 		<h1>Pong</h1>
+		<div id="settings-wrapper">
+			<span id="settings">Settings</span>
+			<!-- SETTINGS START HERE -->
+			<ul id="settings-list">
+				<!-- BALL SETTINGS -->
+				<li id="ball">
+					<span id="ball-title">Ball</span>
+					<div id="ball-container">
+						<div id="ball-list-container" class="hidden">
+							<ul id="ball-list">
+								<li id="ball-size">Ball Size <button id="ball-size-btn" class="ball-wrapper--margin">Change</button>
+									<div id="ball-size-wrapper" class="ball-wrapper--padding hidden silver-bg">
+										<button id="ball-size-small">Small</button>
+										<button id="ball-size-medium">Medium</button>
+										<button id="ball-size-large">Large</button>
+										<button id="ball-size-reset">Reset</button>
+									</div>
+								</li>
+								<!-- BALL SPEED SECTION UNFINISHED  -->
+								<!-- <li id="ball-speed">Ball Speed <button id="ball-speed-btn" class="ball-wrapper--margin">Change</button>
+									<div id="ball-speed-wrapper" class="ball-wrapper--padding hidden silver-bg">
+										<button id="ball-speed-slow">Slow</button>
+										<button id="ball-speed-medium">Medium</button>
+										<button id="ball-speed-fast">Fast</button>
+										<button id="ball-speed-reset">Reset</button>
+									</div>
+								</li> -->
+							</ul>
+						</div>
+					</div>
+				</li>
+				<!-- EOF BALL SETTINGS -->
+			</ul>
+			<!-- EOF SETTINGS -->
+		</div>
 		<div id="game"></div>
-			<!-- <circle cx="200" cy="150" r="8" fill="#FFF" /> -->
+		<!-- <circle cx="200" cy="150" r="8" fill="#FFF" /> -->
 	</div>
 	<script type="text/javascript" src="build/bundle.js"></script>
 </body>

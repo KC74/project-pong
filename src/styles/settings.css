@@ -1,0 +1,73 @@
+/* ------- GENERAL SETTINGS ------- */
+
+#game-wrapper {
+    
+}
+
+#settings-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#settings-list {
+
+}
+
+#settings-list li {
+    display: inline-block;
+}
+
+#settings-list li ul li{
+    display: block;
+}
+
+/* ------- GAME SETTINGS ------- */
+#game {
+    display: flex;
+    justify-content: center;
+}
+
+/* ------- BALL SETTINGS ------- */
+
+#ball {
+    cursor: pointer;
+    width: 100%;
+}
+
+#ball-list li:nth-child(1), #ball-list li:nth-child(2) {
+    border: solid black 1px;
+}
+
+#ball-list li:nth-child(2) {
+    border-top: none;
+}
+
+#ball-container {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.ball-wrapper--padding {
+    padding: 0.5rem 0;
+}
+
+.ball-wrapper--margin {
+    margin: 0.5rem 0;
+}
+
+.silver-bg {
+    background: silver;
+}
+
+.ball-form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.hidden {
+    display: none;
+}
+
